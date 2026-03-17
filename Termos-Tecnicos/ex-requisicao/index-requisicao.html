@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Meu site</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+</head>
+<body>
+
+    <h1>00:00:00</h1>
+    <button>update</button>
+
+    <script>
+        const btn = document.querySelector("button");
+        const h1 = document.querySelector("h1");
+
+        async function updateTime() {
+            const req = await fetch("/time");
+            const time = await req.text();
+            h1.textContent = time;
+        }
+
+
+        btn.addEventListener("click", updateTime);
+    
+
+    </script>
+    
+</body>
+</html>
